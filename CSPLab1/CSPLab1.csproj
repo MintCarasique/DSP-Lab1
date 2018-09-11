@@ -113,5 +113,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSPLab1.SignalLib\CSPLab1.SignalLib.csproj">
+      <Project>{60beb5a8-ce9c-43aa-801a-0556dd2d9e8a}</Project>
+      <Name>CSPLab1.SignalLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
