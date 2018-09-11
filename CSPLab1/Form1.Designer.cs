@@ -32,15 +32,18 @@
             this.harmonicTabPage = new System.Windows.Forms.TabPage();
             this.harmVariantTabControl = new System.Windows.Forms.TabControl();
             this.AtabPage = new System.Windows.Forms.TabPage();
+            this.drawAllButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.frequenciesGridView = new System.Windows.Forms.DataGridView();
+            this.frequencyTextBox = new System.Windows.Forms.TextBox();
+            this.amplitudeTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.plotView1 = new OxyPlot.WindowsForms.PlotView();
             this.BtabPage = new System.Windows.Forms.TabPage();
             this.CtabPage = new System.Windows.Forms.TabPage();
             this.polyharmonicTabPage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.amplitudeTextBox = new System.Windows.Forms.TextBox();
-            this.frequencyTextBox = new System.Windows.Forms.TextBox();
-            this.frequenciesGridView = new System.Windows.Forms.DataGridView();
+            this.rebuildButton = new System.Windows.Forms.Button();
             this.FunctionTabControl.SuspendLayout();
             this.harmonicTabPage.SuspendLayout();
             this.harmVariantTabControl.SuspendLayout();
@@ -82,6 +85,9 @@
             // 
             // AtabPage
             // 
+            this.AtabPage.Controls.Add(this.rebuildButton);
+            this.AtabPage.Controls.Add(this.drawAllButton);
+            this.AtabPage.Controls.Add(this.label3);
             this.AtabPage.Controls.Add(this.frequenciesGridView);
             this.AtabPage.Controls.Add(this.frequencyTextBox);
             this.AtabPage.Controls.Add(this.amplitudeTextBox);
@@ -95,6 +101,76 @@
             this.AtabPage.TabIndex = 0;
             this.AtabPage.Text = "Const A and f";
             this.AtabPage.UseVisualStyleBackColor = true;
+            // 
+            // drawAllButton
+            // 
+            this.drawAllButton.Location = new System.Drawing.Point(901, 475);
+            this.drawAllButton.Name = "drawAllButton";
+            this.drawAllButton.Size = new System.Drawing.Size(75, 23);
+            this.drawAllButton.TabIndex = 7;
+            this.drawAllButton.Text = "Draw All";
+            this.drawAllButton.UseVisualStyleBackColor = true;
+            this.drawAllButton.Click += new System.EventHandler(this.drawAllButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(254, 475);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 24);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "fi = ";
+            // 
+            // frequenciesGridView
+            // 
+            this.frequenciesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.frequenciesGridView.Location = new System.Drawing.Point(304, 452);
+            this.frequenciesGridView.Name = "frequenciesGridView";
+            this.frequenciesGridView.Size = new System.Drawing.Size(591, 72);
+            this.frequenciesGridView.TabIndex = 5;
+            this.frequenciesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.frequenciesGridView_CellClick);
+            // 
+            // frequencyTextBox
+            // 
+            this.frequencyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.frequencyTextBox.Location = new System.Drawing.Point(57, 495);
+            this.frequencyTextBox.MaxLength = 1;
+            this.frequencyTextBox.Name = "frequencyTextBox";
+            this.frequencyTextBox.Size = new System.Drawing.Size(100, 29);
+            this.frequencyTextBox.TabIndex = 4;
+            this.frequencyTextBox.Text = "5";
+            // 
+            // amplitudeTextBox
+            // 
+            this.amplitudeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.amplitudeTextBox.Location = new System.Drawing.Point(57, 452);
+            this.amplitudeTextBox.MaxLength = 2;
+            this.amplitudeTextBox.Name = "amplitudeTextBox";
+            this.amplitudeTextBox.Size = new System.Drawing.Size(100, 29);
+            this.amplitudeTextBox.TabIndex = 3;
+            this.amplitudeTextBox.Text = "7";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(26, 498);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "f = ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(17, 455);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "A = ";
             // 
             // plotView1
             // 
@@ -113,7 +189,7 @@
             this.BtabPage.Location = new System.Drawing.Point(4, 22);
             this.BtabPage.Name = "BtabPage";
             this.BtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.BtabPage.Size = new System.Drawing.Size(831, 547);
+            this.BtabPage.Size = new System.Drawing.Size(1260, 547);
             this.BtabPage.TabIndex = 1;
             this.BtabPage.Text = "Const A and fi";
             this.BtabPage.UseVisualStyleBackColor = true;
@@ -123,7 +199,7 @@
             this.CtabPage.Location = new System.Drawing.Point(4, 22);
             this.CtabPage.Name = "CtabPage";
             this.CtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CtabPage.Size = new System.Drawing.Size(831, 547);
+            this.CtabPage.Size = new System.Drawing.Size(1260, 547);
             this.CtabPage.TabIndex = 2;
             this.CtabPage.Text = "Const fi and f";
             this.CtabPage.UseVisualStyleBackColor = true;
@@ -133,60 +209,20 @@
             this.polyharmonicTabPage.Location = new System.Drawing.Point(4, 22);
             this.polyharmonicTabPage.Name = "polyharmonicTabPage";
             this.polyharmonicTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.polyharmonicTabPage.Size = new System.Drawing.Size(835, 576);
+            this.polyharmonicTabPage.Size = new System.Drawing.Size(1264, 576);
             this.polyharmonicTabPage.TabIndex = 1;
             this.polyharmonicTabPage.Text = "Polyharmonic";
             this.polyharmonicTabPage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // rebuildButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(17, 455);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "A = ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(26, 498);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "f = ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // amplitudeTextBox
-            // 
-            this.amplitudeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.amplitudeTextBox.Location = new System.Drawing.Point(57, 452);
-            this.amplitudeTextBox.MaxLength = 2;
-            this.amplitudeTextBox.Name = "amplitudeTextBox";
-            this.amplitudeTextBox.Size = new System.Drawing.Size(100, 29);
-            this.amplitudeTextBox.TabIndex = 3;
-            this.amplitudeTextBox.Text = "7";
-            // 
-            // frequencyTextBox
-            // 
-            this.frequencyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.frequencyTextBox.Location = new System.Drawing.Point(57, 495);
-            this.frequencyTextBox.MaxLength = 1;
-            this.frequencyTextBox.Name = "frequencyTextBox";
-            this.frequencyTextBox.Size = new System.Drawing.Size(100, 29);
-            this.frequencyTextBox.TabIndex = 4;
-            this.frequencyTextBox.Text = "5";
-            // 
-            // frequenciesGridView
-            // 
-            this.frequenciesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.frequenciesGridView.Location = new System.Drawing.Point(265, 452);
-            this.frequenciesGridView.Name = "frequenciesGridView";
-            this.frequenciesGridView.Size = new System.Drawing.Size(243, 72);
-            this.frequenciesGridView.TabIndex = 5;
-            this.frequenciesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.rebuildButton.Location = new System.Drawing.Point(983, 475);
+            this.rebuildButton.Name = "rebuildButton";
+            this.rebuildButton.Size = new System.Drawing.Size(75, 23);
+            this.rebuildButton.TabIndex = 8;
+            this.rebuildButton.Text = "Rebuild";
+            this.rebuildButton.UseVisualStyleBackColor = true;
+            this.rebuildButton.Click += new System.EventHandler(this.rebuildButton_Click);
             // 
             // Form1
             // 
@@ -222,6 +258,9 @@
         private System.Windows.Forms.TextBox amplitudeTextBox;
         private System.Windows.Forms.TextBox frequencyTextBox;
         private System.Windows.Forms.DataGridView frequenciesGridView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button drawAllButton;
+        private System.Windows.Forms.Button rebuildButton;
     }
 }
 

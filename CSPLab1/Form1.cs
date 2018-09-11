@@ -21,36 +21,36 @@ namespace CSPLab1
         private int _f = 2;
         private int _N = 512;
 
-        public double[] Frequences = {Math.PI, 0, Math.PI/3, Math.PI/6, Math.PI/2};
+        public double[] FiValues = {Math.PI, 0, Math.PI/3, Math.PI/6, Math.PI/2};
+        public string[] FiStrings = { "π", "0", "π/3", "π/6", "π/2" };
 
         public Form1()
         {
             InitializeComponent();
-            var harmonicModel = new PlotModel(){Title =  "Harmonic signal"};
-            Func<double, double> harmonicFunc = Calc;
-            for (int i = 0; i < 5; i++)
-            {
-                _fi = Frequences[i];
-                _a = int.Parse(this.amplitudeTextBox.Text);
-                _f = int.Parse(frequencyTextBox.Text);
-                harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "fi"+ (i + 1).ToString()));
-            }
-
-            this.plotView1.Model = harmonicModel;
             //this.plotView.Model = harmonicModel;
         }
 
+
+        public PlotModel DrawAll()
+        {
+            var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
+            Func<double, double> harmonicFunc = Calc;
+            for (int i = 0; i < 5; i++)
+            {
+                _fi = FiValues[i];
+                _a = int.Parse(this.amplitudeTextBox.Text);
+                _f = int.Parse(frequencyTextBox.Text);
+                harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "fi" + (i + 1).ToString()));
+            }
+
+            return harmonicModel;
+        }
         public double Calc(double n)
         {
             return _a * Math.Sin(2 * Math.PI * _f * n / _N + _fi);
         }
 
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -66,12 +66,39 @@ namespace CSPLab1
             DataRow r = dt.NewRow();
             for (int i = 1; i <= 5; i++)
             {
-                r["fi" + i.ToString()] = Frequences[i - 1];
+                r["fi" + i] = FiStrings[i - 1];
             }
 
             dt.Rows.Add(r);
-
+            frequenciesGridView.AllowUserToAddRows = false;
             frequenciesGridView.DataSource = dt;
+
+
+            var harmonicModel = DrawAll();
+            this.plotView1.Model = harmonicModel;
+        }
+
+        private void drawAllButton_Click(object sender, EventArgs e)
+        {
+            var harmonicModel = DrawAll();
+            this.plotView1.Model = harmonicModel;
+        }
+
+        private void frequenciesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
+            Func<double, double> harmonicFunc = Calc;
+            _fi = FiValues[e.ColumnIndex];
+            _a = int.Parse(this.amplitudeTextBox.Text);
+            _f = int.Parse(frequencyTextBox.Text);
+            harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "fi" + (e.ColumnIndex + 1)));
+            plotView1.Model = harmonicModel;
+        }
+
+        private void rebuildButton_Click(object sender, EventArgs e)
+        {
+            var harmonicModel = DrawAll();
+            this.plotView1.Model = harmonicModel;
         }
     }
 }
