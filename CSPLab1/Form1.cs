@@ -19,7 +19,11 @@ namespace CSPLab1
 
         public int[] FreqValues = { 1, 5, 11, 6, 3 };
 
+        public int[] AmpValues = { 1, 2, 11, 4, 2 };
+
         public string[] FiStrings = { "π", "0", "π/3", "π/6", "π/2" };
+
+        Func<double, double> _harmonicFunc;
 
         public Form1()
         {
@@ -30,13 +34,12 @@ namespace CSPLab1
         public PlotModel DrawAllFirst()
         {
             var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
-            Func<double, double> harmonicFunc = Calc;
             for (int i = 0; i < 5; i++)
             {
                 _fi = FiValues[i];
                 _a = int.Parse(amplitudeTextBox.Text);
                 _f = int.Parse(frequencyTextBox.Text);
-                harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "fi" + (i + 1).ToString()));
+                harmonicModel.Series.Add(new FunctionSeries(_harmonicFunc, 0, _n, 0.5, "fi" + (i + 1)));
             }
 
             return harmonicModel;
@@ -45,13 +48,26 @@ namespace CSPLab1
         public PlotModel DrawAllSecond()
         {
             var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
-            Func<double, double> harmonicFunc = Calc;
             for (int i = 0; i < 5; i++)
             {
                 _f = FreqValues[i];
                 _a = int.Parse(amplitudeTextBox2.Text);
                 _fi = 3 * Math.PI / 4;
-                harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "f" + (i + 1).ToString()));
+                harmonicModel.Series.Add(new FunctionSeries(_harmonicFunc, 0, _n, 0.5, "f" + (i + 1)));
+            }
+
+            return harmonicModel;
+        }
+
+        public PlotModel DrawAllThird()
+        {
+            var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
+            for (int i = 0; i < 5; i++)
+            {
+                _f = int.Parse(frequencyTextBox2.Text); 
+                _a = AmpValues[i];
+                _fi = 3 * Math.PI / 4;
+                harmonicModel.Series.Add(new FunctionSeries(_harmonicFunc, 0, _n, 0.5, "A" + (i + 1)));
             }
 
             return harmonicModel;
@@ -63,15 +79,19 @@ namespace CSPLab1
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            _harmonicFunc = Calc;
+
             fiGridView.DataSource = GenerateTable(FiStrings, "fi");
             fiGridView.AllowUserToAddRows = false;
 
             frequenciesGridView.DataSource = GenerateTable(FreqValues, "f");
             frequenciesGridView.AllowUserToAddRows = false;
-            var harmonicModel1 = DrawAllFirst();
-            var harmonicModel2 = DrawAllSecond();
-            plotView1.Model = harmonicModel1;
-            plotView2.Model = harmonicModel2;
+
+            amplitudeGridView.DataSource = GenerateTable(AmpValues, "A");
+            amplitudeGridView.AllowUserToAddRows = false;
+            plotView1.Model = DrawAllFirst();
+            plotView2.Model = DrawAllSecond();
+            plotView3.Model = DrawAllThird();
         }
 
         public DataTable GenerateTable<T>(T[] values, string colName)
@@ -91,47 +111,45 @@ namespace CSPLab1
 
         private void drawAllButton_Click(object sender, EventArgs e)
         {
-            var harmonicModel = DrawAllFirst();
-            plotView1.Model = harmonicModel;
-        }
-
-        private void rebuildButton_Click(object sender, EventArgs e)
-        {
-            var harmonicModel = DrawAllFirst();
-            plotView1.Model = harmonicModel;
-        }
-
-        private void amplitudeTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            plotView1.Model = DrawAllFirst();
         }
 
         private void fiGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            plotView1.Model = DrawSingle(FiValues[e.ColumnIndex], int.Parse(amplitudeTextBox.Text), int.Parse(frequencyTextBox.Text), int.Parse(nBox1.Text), int.Parse(NtextBox1.Text), e.ColumnIndex + 1);
+        }
+
+        public PlotModel DrawSingle(double fi, int a, int f, int n, int N, int colNum)
+        {
+            _fi = fi;
+            _a = a;
+            _f = f;
+            _n = n;
+            _N = N;
             var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
-            Func<double, double> harmonicFunc = Calc;
-            _fi = FiValues[e.ColumnIndex];
-            _a = int.Parse(amplitudeTextBox.Text);
-            _f = int.Parse(frequencyTextBox.Text);
-            harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "fi" + (e.ColumnIndex + 1)));
-            plotView1.Model = harmonicModel;
+            harmonicModel.Series.Add(new FunctionSeries(_harmonicFunc, 0, _n, 0.5, "fi" + colNum));
+            return harmonicModel;
         }
 
         private void DrawAll2button_Click(object sender, EventArgs e)
         {
-            var harmonicModel = DrawAllSecond();
-            plotView2.Model = harmonicModel;
+            plotView2.Model = DrawAllSecond();
         }
 
         private void frequenciesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
-            Func<double, double> harmonicFunc = Calc;
-            _f = FreqValues[e.ColumnIndex];
-            _a = int.Parse(amplitudeTextBox2.Text);
-            _fi = 3 * Math.PI / 4;
-            harmonicModel.Series.Add(new FunctionSeries(harmonicFunc, 0, _n, 0.5, "f" + (e.ColumnIndex + 1)));
-            plotView2.Model = harmonicModel;
+            plotView2.Model = DrawSingle(3 * Math.PI / 4, int.Parse(amplitudeTextBox2.Text), FreqValues[e.ColumnIndex], int.Parse(nBox2.Text), int.Parse(NtextBox2.Text), e.ColumnIndex + 1);
+        }
+
+        private void amplitudeGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            plotView3.Model = DrawSingle(3 * Math.PI / 4, AmpValues[e.ColumnIndex], int.Parse(frequencyTextBox2.Text),
+                int.Parse(nBox3.Text), Int32.Parse(NtextBox3.Text), e.ColumnIndex + 1);
+        }
+
+        private void DrawAll3button_Click(object sender, EventArgs e)
+        {
+            plotView3.Model = DrawAllThird();
         }
     }
 }
