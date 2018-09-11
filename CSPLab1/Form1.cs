@@ -31,7 +31,7 @@ namespace CSPLab1
         }
 
 
-        public PlotModel DrawAll()
+        public PlotModel DrawAllFirst()
         {
             var harmonicModel = new PlotModel() { Title = "Harmonic signal" };
             Func<double, double> harmonicFunc = Calc;
@@ -57,30 +57,32 @@ namespace CSPLab1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            frequenciesGridView.DataSource = GenerateTable(FiStrings, "fi");
+            frequenciesGridView.AllowUserToAddRows = false;
+
+
+            var harmonicModel = DrawAllFirst();
+            this.plotView1.Model = harmonicModel;
+        }
+
+        public DataTable GenerateTable<T>(T[] values, string colName)
+        {
             DataTable dt = new DataTable();
-            dt.Columns.Add("fi1");
-            dt.Columns.Add("fi2");
-            dt.Columns.Add("fi3");
-            dt.Columns.Add("fi4");
-            dt.Columns.Add("fi5");
+            
             DataRow r = dt.NewRow();
             for (int i = 1; i <= 5; i++)
             {
+                dt.Columns.Add(colName + i);
                 r["fi" + i] = FiStrings[i - 1];
             }
 
             dt.Rows.Add(r);
-            frequenciesGridView.AllowUserToAddRows = false;
-            frequenciesGridView.DataSource = dt;
-
-
-            var harmonicModel = DrawAll();
-            this.plotView1.Model = harmonicModel;
+            return dt;
         }
 
         private void drawAllButton_Click(object sender, EventArgs e)
         {
-            var harmonicModel = DrawAll();
+            var harmonicModel = DrawAllFirst();
             this.plotView1.Model = harmonicModel;
         }
 
@@ -97,8 +99,13 @@ namespace CSPLab1
 
         private void rebuildButton_Click(object sender, EventArgs e)
         {
-            var harmonicModel = DrawAll();
+            var harmonicModel = DrawAllFirst();
             this.plotView1.Model = harmonicModel;
+        }
+
+        private void amplitudeTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
