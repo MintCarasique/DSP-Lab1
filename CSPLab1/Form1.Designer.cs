@@ -71,6 +71,31 @@
             this.label7 = new System.Windows.Forms.Label();
             this.plotView3 = new OxyPlot.WindowsForms.PlotView();
             this.polyharmonicTabPage = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.poly1nbox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.poly1NtextBox = new System.Windows.Forms.TextBox();
+            this.poly1rebuild = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.plotView4 = new OxyPlot.WindowsForms.PlotView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.plotView5 = new OxyPlot.WindowsForms.PlotView();
             this.FunctionTabControl.SuspendLayout();
             this.harmonicTabPage.SuspendLayout();
             this.harmVariantTabControl.SuspendLayout();
@@ -80,6 +105,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.frequenciesGridView)).BeginInit();
             this.CtabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amplitudeGridView)).BeginInit();
+            this.polyharmonicTabPage.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // FunctionTabControl
@@ -551,6 +582,7 @@
             // 
             // polyharmonicTabPage
             // 
+            this.polyharmonicTabPage.Controls.Add(this.tabControl1);
             this.polyharmonicTabPage.Location = new System.Drawing.Point(4, 22);
             this.polyharmonicTabPage.Name = "polyharmonicTabPage";
             this.polyharmonicTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -558,6 +590,281 @@
             this.polyharmonicTabPage.TabIndex = 1;
             this.polyharmonicTabPage.Text = "Polyharmonic";
             this.polyharmonicTabPage.UseVisualStyleBackColor = true;
+            this.polyharmonicTabPage.Click += new System.EventHandler(this.polyharmonicTabPage_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1268, 573);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.poly1nbox);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.poly1NtextBox);
+            this.tabPage1.Controls.Add(this.poly1rebuild);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.plotView4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1260, 547);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Const A and f";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(1087, 500);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 24);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "n = ";
+            // 
+            // poly1nbox
+            // 
+            this.poly1nbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.poly1nbox.Location = new System.Drawing.Point(1135, 498);
+            this.poly1nbox.MaxLength = 7;
+            this.poly1nbox.Name = "poly1nbox";
+            this.poly1nbox.Size = new System.Drawing.Size(100, 29);
+            this.poly1nbox.TabIndex = 10;
+            this.poly1nbox.Text = "511";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(1085, 456);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 24);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "N = ";
+            // 
+            // poly1NtextBox
+            // 
+            this.poly1NtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.poly1NtextBox.Location = new System.Drawing.Point(1135, 452);
+            this.poly1NtextBox.MaxLength = 7;
+            this.poly1NtextBox.Name = "poly1NtextBox";
+            this.poly1NtextBox.Size = new System.Drawing.Size(100, 29);
+            this.poly1NtextBox.TabIndex = 8;
+            this.poly1NtextBox.Text = "512";
+            // 
+            // poly1rebuild
+            // 
+            this.poly1rebuild.Location = new System.Drawing.Point(901, 475);
+            this.poly1rebuild.Name = "poly1rebuild";
+            this.poly1rebuild.Size = new System.Drawing.Size(126, 23);
+            this.poly1rebuild.TabIndex = 7;
+            this.poly1rebuild.Text = "Draw All/Rebuild";
+            this.poly1rebuild.UseVisualStyleBackColor = true;
+            this.poly1rebuild.Click += new System.EventHandler(this.poly1rebuild_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(250, 475);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(39, 24);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "fi = ";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(304, 452);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(591, 72);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox4.Location = new System.Drawing.Point(57, 452);
+            this.textBox4.MaxLength = 2;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 29);
+            this.textBox4.TabIndex = 3;
+            this.textBox4.Text = "9";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(17, 455);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 24);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "A = ";
+            // 
+            // plotView4
+            // 
+            this.plotView4.Location = new System.Drawing.Point(7, 7);
+            this.plotView4.Name = "plotView4";
+            this.plotView4.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotView4.Size = new System.Drawing.Size(1247, 432);
+            this.plotView4.TabIndex = 0;
+            this.plotView4.Text = "plotView";
+            this.plotView4.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotView4.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotView4.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.textBox6);
+            this.tabPage2.Controls.Add(this.textBox7);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.label24);
+            this.tabPage2.Controls.Add(this.label25);
+            this.tabPage2.Controls.Add(this.plotView5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1260, 547);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Const A and fi";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.Location = new System.Drawing.Point(1087, 500);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(42, 24);
+            this.label21.TabIndex = 15;
+            this.label21.Text = "n = ";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox5.Location = new System.Drawing.Point(1135, 498);
+            this.textBox5.MaxLength = 7;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 29);
+            this.textBox5.TabIndex = 14;
+            this.textBox5.Text = "512";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.Location = new System.Drawing.Point(1085, 456);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 24);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "N = ";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox6.Location = new System.Drawing.Point(1135, 452);
+            this.textBox6.MaxLength = 7;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 29);
+            this.textBox6.TabIndex = 12;
+            this.textBox6.Text = "512";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox7.Location = new System.Drawing.Point(57, 452);
+            this.textBox7.MaxLength = 2;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(100, 29);
+            this.textBox7.TabIndex = 4;
+            this.textBox7.Text = "7";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(901, 475);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Draw All/Rebuild";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label23.Location = new System.Drawing.Point(252, 477);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(35, 24);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "f = ";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(304, 452);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(591, 72);
+            this.dataGridView2.TabIndex = 9;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox8.Location = new System.Drawing.Point(57, 495);
+            this.textBox8.MaxLength = 2;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(100, 29);
+            this.textBox8.TabIndex = 8;
+            this.textBox8.Text = "3π/4";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label24.Location = new System.Drawing.Point(22, 498);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(39, 24);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "fi = ";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label25.Location = new System.Drawing.Point(17, 455);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(44, 24);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "A = ";
+            // 
+            // plotView5
+            // 
+            this.plotView5.Location = new System.Drawing.Point(7, 7);
+            this.plotView5.Name = "plotView5";
+            this.plotView5.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotView5.Size = new System.Drawing.Size(1247, 432);
+            this.plotView5.TabIndex = 5;
+            this.plotView5.Text = "plotView";
+            this.plotView5.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotView5.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotView5.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
             // 
             // Form1
             // 
@@ -580,6 +887,14 @@
             this.CtabPage.ResumeLayout(false);
             this.CtabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amplitudeGridView)).EndInit();
+            this.polyharmonicTabPage.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -629,6 +944,31 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox poly1nbox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox poly1NtextBox;
+        private System.Windows.Forms.Button poly1rebuild;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label20;
+        private OxyPlot.WindowsForms.PlotView plotView4;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private OxyPlot.WindowsForms.PlotView plotView5;
     }
 }
 

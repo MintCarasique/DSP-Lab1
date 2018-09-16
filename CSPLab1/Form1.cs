@@ -15,6 +15,10 @@ namespace CSPLab1
         private int _f = 2;
         private int _N = 512;
 
+        private int _k = 5;
+
+
+
         public double[] FiValues = { Math.PI, 0, Math.PI / 3, Math.PI / 6, Math.PI / 2 };
 
         public int[] FreqValues = { 1, 5, 11, 6, 3 };
@@ -23,7 +27,10 @@ namespace CSPLab1
 
         public string[] FiStrings = { "π", "0", "π/3", "π/6", "π/2" };
 
+        public double[] PolyValues = { Math.PI / 2, 0, Math.PI / 4, Math.PI / 3, Math.PI / 6 };
+
         Func<double, double> _harmonicFunc;
+        Func<double, double> _polyharmonicFunc;
 
         public Form1()
         {
@@ -76,10 +83,21 @@ namespace CSPLab1
         {
             return _a * Math.Sin(2 * Math.PI * _f * n / _N + _fi);
         }
+
+        public double PolyCalc(double n)
+        {
+            double res = 9 * Math.Sin(2 * Math.PI * 1 * n / _N + PolyValues[0]);
+            for (int j = 2; j <= 5; j++)
+            {
+                res = res + _a * Math.Sin(2 * Math.PI * j * n / _N + PolyValues[j - 1]);
+            }
+            return res;
+        }
         
         private void Form1_Load(object sender, EventArgs e)
         {
             _harmonicFunc = Calc;
+            _polyharmonicFunc = PolyCalc;
 
             fiGridView.DataSource = GenerateTable(FiStrings, "fi");
             fiGridView.AllowUserToAddRows = false;
@@ -92,6 +110,7 @@ namespace CSPLab1
             plotView1.Model = DrawAllFirst();
             plotView2.Model = DrawAllSecond();
             plotView3.Model = DrawAllThird();
+            plotView4.Model = DrawPolyFirst();
         }
 
         public DataTable GenerateTable<T>(T[] values, string colName)
@@ -150,6 +169,33 @@ namespace CSPLab1
         private void DrawAll3button_Click(object sender, EventArgs e)
         {
             plotView3.Model = DrawAllThird();
+        }
+
+        private PlotModel DrawPolyFirst()
+        {
+            var polyharmonicModel = new PlotModel() { Title = "Polyharmonic signal" };
+            
+            for (int i = 0; i < 5; i++)
+            {
+                //_f = int.Parse(frequencyTextBox2.Text);
+                _a = 9;
+                _N = int.Parse(poly1NtextBox.Text);
+                _n = int.Parse(poly1nbox.Text);
+                //_fi = 3 * Math.PI / 4;
+                polyharmonicModel.Series.Add(new FunctionSeries(_polyharmonicFunc, 0, _n, 0.5));
+            }
+
+            return polyharmonicModel;
+        }
+
+        private void polyharmonicTabPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void poly1rebuild_Click(object sender, EventArgs e)
+        {
+            plotView4.Model = DrawPolyFirst();
         }
     }
 }
