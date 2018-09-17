@@ -146,9 +146,9 @@ namespace CSPLab1
 
             for (int i = 1; i < N*2; i++)
             {
-                var a = A * i / N * 0.1;
-                var freq = f * i / N * 0.1;
-                var fiVar = fi * i / N * 0.1;
+                var a = A * (i % N) * 0.001;
+                var freq = f * (i % N) * 0.001;
+                var fiVar = fi * (i % N) * 0.001;
                 for (int j = 1;  j <= k;  j++)
                 {
                     res = res + a * Math.Sin((2 * Math.PI * freq * i / N) + fiVar);
