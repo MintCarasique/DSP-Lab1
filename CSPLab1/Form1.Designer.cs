@@ -85,9 +85,9 @@
             this.plotView4 = new OxyPlot.WindowsForms.PlotView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.poly2nbox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.poly2NtextBox = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -726,9 +726,9 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.poly2nbox);
             this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.textBox6);
+            this.tabPage2.Controls.Add(this.poly2NtextBox);
             this.tabPage2.Controls.Add(this.textBox7);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label23);
@@ -755,15 +755,15 @@
             this.label21.TabIndex = 15;
             this.label21.Text = "n = ";
             // 
-            // textBox5
+            // poly2nbox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(1135, 498);
-            this.textBox5.MaxLength = 7;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 29);
-            this.textBox5.TabIndex = 14;
-            this.textBox5.Text = "512";
+            this.poly2nbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.poly2nbox.Location = new System.Drawing.Point(1135, 498);
+            this.poly2nbox.MaxLength = 7;
+            this.poly2nbox.Name = "poly2nbox";
+            this.poly2nbox.Size = new System.Drawing.Size(100, 29);
+            this.poly2nbox.TabIndex = 14;
+            this.poly2nbox.Text = "512";
             // 
             // label22
             // 
@@ -775,15 +775,15 @@
             this.label22.TabIndex = 13;
             this.label22.Text = "N = ";
             // 
-            // textBox6
+            // poly2NtextBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox6.Location = new System.Drawing.Point(1135, 452);
-            this.textBox6.MaxLength = 7;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 29);
-            this.textBox6.TabIndex = 12;
-            this.textBox6.Text = "512";
+            this.poly2NtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.poly2NtextBox.Location = new System.Drawing.Point(1135, 452);
+            this.poly2NtextBox.MaxLength = 7;
+            this.poly2NtextBox.Name = "poly2NtextBox";
+            this.poly2NtextBox.Size = new System.Drawing.Size(100, 29);
+            this.poly2NtextBox.TabIndex = 12;
+            this.poly2NtextBox.Text = "512";
             // 
             // textBox7
             // 
@@ -804,6 +804,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Draw All/Rebuild";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label23
             // 
@@ -958,9 +959,9 @@
         private OxyPlot.WindowsForms.PlotView plotView4;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox poly2nbox;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox poly2NtextBox;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label23;

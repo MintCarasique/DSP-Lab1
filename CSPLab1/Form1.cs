@@ -3,6 +3,7 @@ using System.Data;
 using OxyPlot;
 using OxyPlot.Series;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace CSPLab1
 {
@@ -86,14 +87,23 @@ namespace CSPLab1
 
         public double PolyCalc(double n)
         {
-            double res = 9 * Math.Sin(2 * Math.PI * 1 * n / _N + PolyValues[0]);
+            double res = _a * Math.Sin(2 * Math.PI * 1 * n / _N + PolyValues[0]);
             for (int j = 2; j <= 5; j++)
             {
                 res = res + _a * Math.Sin(2 * Math.PI * j * n / _N + PolyValues[j - 1]);
             }
             return res;
         }
-        
+        public double PolyCalc2(double n)
+        {
+            double res = _a * Math.Sin(2 * Math.PI * 1 * n / _N + _fi);
+            for (int j = 1; j <= 5; j++)
+            {
+                res = res + _a * Math.Sin(2 * Math.PI * j * n / _N + _fi);
+            }
+            return res;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             _harmonicFunc = Calc;
@@ -111,8 +121,28 @@ namespace CSPLab1
             plotView2.Model = DrawAllSecond();
             plotView3.Model = DrawAllThird();
             plotView4.Model = DrawPolyFirst();
+            plotView5.Model = DrawPolySecond();
         }
 
+        public PlotModel DrawPolySecond()
+        {
+            var polyharmonicModel = new PlotModel() { Title = "Polyharmonic signal" };
+            Func<double, double> poly2 = PolyCalc2;
+            
+            for (int i = 0; i < 100; i++)
+            {
+                //_f = int.Parse(frequencyTextBox2.Text);
+                _a = 9 * (100 - i) / 100;
+                _N = int.Parse(poly2NtextBox.Text) * (100 - i) / 100;
+                _n = int.Parse(poly2nbox.Text);
+                _fi = Math.PI * (100 - i) / 100;
+                _f = 10 * (100 - i) / 100;
+                //_fi = 3 * Math.PI / 4;
+                polyharmonicModel.Series.Add(new FunctionSeries(poly2, i * _n, i * _n + _n, 0.1));
+            }
+
+            return polyharmonicModel;
+        }
         public DataTable GenerateTable<T>(T[] values, string colName)
         {
             DataTable dt = new DataTable();
@@ -196,6 +226,11 @@ namespace CSPLab1
         private void poly1rebuild_Click(object sender, EventArgs e)
         {
             plotView4.Model = DrawPolyFirst();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            plotView5.Model = DrawPolySecond();
         }
     }
 }
