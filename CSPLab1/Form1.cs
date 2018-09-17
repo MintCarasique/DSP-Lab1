@@ -132,7 +132,7 @@ namespace CSPLab1
             var N = int.Parse(poly2NtextBox.Text);
             var n = int.Parse(poly2nbox.Text);
             //var n = 512;
-            var fi = Math.PI;
+            var fi = 0;
             
             double f = 10;
             var k = 5;
