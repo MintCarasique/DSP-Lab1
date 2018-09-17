@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.FunctionTabControl = new System.Windows.Forms.TabControl();
             this.harmonicTabPage = new System.Windows.Forms.TabPage();
             this.harmVariantTabControl = new System.Windows.Forms.TabControl();
@@ -84,6 +86,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.plotView4 = new OxyPlot.WindowsForms.PlotView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label21 = new System.Windows.Forms.Label();
             this.poly2nbox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -95,7 +98,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.plotView5 = new OxyPlot.WindowsForms.PlotView();
             this.FunctionTabControl.SuspendLayout();
             this.harmonicTabPage.SuspendLayout();
             this.harmVariantTabControl.SuspendLayout();
@@ -110,6 +112,7 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -725,6 +728,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.poly2nbox);
             this.tabPage2.Controls.Add(this.label22);
@@ -736,7 +740,6 @@
             this.tabPage2.Controls.Add(this.textBox8);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.label25);
-            this.tabPage2.Controls.Add(this.plotView5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -744,6 +747,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Const A and fi";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(7, 7);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(1247, 439);
+            this.chart1.TabIndex = 16;
+            this.chart1.Text = "Polyharmonic signal";
             // 
             // label21
             // 
@@ -855,18 +870,6 @@
             this.label25.TabIndex = 6;
             this.label25.Text = "A = ";
             // 
-            // plotView5
-            // 
-            this.plotView5.Location = new System.Drawing.Point(7, 7);
-            this.plotView5.Name = "plotView5";
-            this.plotView5.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotView5.Size = new System.Drawing.Size(1247, 432);
-            this.plotView5.TabIndex = 5;
-            this.plotView5.Text = "plotView";
-            this.plotView5.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
-            this.plotView5.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.plotView5.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,6 +898,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -969,7 +973,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private OxyPlot.WindowsForms.PlotView plotView5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

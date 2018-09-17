@@ -4,6 +4,8 @@ using OxyPlot;
 using OxyPlot.Series;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
+using Series = System.Windows.Forms.DataVisualization.Charting.Series;
 
 namespace CSPLab1
 {
@@ -121,27 +123,50 @@ namespace CSPLab1
             plotView2.Model = DrawAllSecond();
             plotView3.Model = DrawAllThird();
             plotView4.Model = DrawPolyFirst();
-            plotView5.Model = DrawPolySecond();
+            DrawPolySecond();
         }
 
-        public PlotModel DrawPolySecond()
+        public void DrawPolySecond()
         {
-            var polyharmonicModel = new PlotModel() { Title = "Polyharmonic signal" };
-            Func<double, double> poly2 = PolyCalc2;
+            double A = 10;
+            var N = int.Parse(poly2NtextBox.Text);
+            var n = int.Parse(poly2nbox.Text);
+            //var n = 512;
+            var fi = Math.PI;
             
-            for (int i = 0; i < 100; i++)
+            double f = 10;
+            var k = 5;
+            double res = 0;
+            if (chart1.ChartAreas.Count == 1)  
+            chart1.ChartAreas.Add(new ChartArea("Math"));
+
+            Series series = new Series("Polyharmonic signal");
+            series.ChartType = SeriesChartType.Line;
+            series.ChartArea = "Math";
+
+            for (int i = 1; i < N*2; i++)
             {
-                //_f = int.Parse(frequencyTextBox2.Text);
-                _a = 9 * (100 - i) / 100;
-                _N = int.Parse(poly2NtextBox.Text) * (100 - i) / 100;
-                _n = int.Parse(poly2nbox.Text);
-                _fi = Math.PI * (100 - i) / 100;
-                _f = 10 * (100 - i) / 100;
-                //_fi = 3 * Math.PI / 4;
-                polyharmonicModel.Series.Add(new FunctionSeries(poly2, i * _n, i * _n + _n, 0.1));
+                var a = A * i / N * 0.1;
+                var freq = f * i / N * 0.1;
+                var fiVar = fi * i / N * 0.1;
+                for (int j = 1;  j <= k;  j++)
+                {
+                    res = res + a * Math.Sin((2 * Math.PI * freq * i / N) + fiVar);
+                }
+
+                series.Points.AddXY(i, res);
+                res = 0;
             }
 
-            return polyharmonicModel;
+            if (chart1.Series.Count == 0)
+            {
+                chart1.Series.Add(series);
+            }
+            else
+            {
+                chart1.Series[0] = series;
+            }
+                
         }
         public DataTable GenerateTable<T>(T[] values, string colName)
         {
@@ -205,15 +230,10 @@ namespace CSPLab1
         {
             var polyharmonicModel = new PlotModel() { Title = "Polyharmonic signal" };
             
-            for (int i = 0; i < 5; i++)
-            {
-                //_f = int.Parse(frequencyTextBox2.Text);
                 _a = 9;
                 _N = int.Parse(poly1NtextBox.Text);
                 _n = int.Parse(poly1nbox.Text);
-                //_fi = 3 * Math.PI / 4;
                 polyharmonicModel.Series.Add(new FunctionSeries(_polyharmonicFunc, 0, _n, 0.5));
-            }
 
             return polyharmonicModel;
         }
@@ -230,7 +250,7 @@ namespace CSPLab1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            plotView5.Model = DrawPolySecond();
+            DrawPolySecond();
         }
     }
 }
